@@ -7,7 +7,7 @@
     <ProjectGuid>{DD0B5F32-314F-45BB-947D-CA79F478BDE2}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ArchiveOneCL</RootNamespace>
+    <RootNamespace>Mikesoft.ArchiveOneCL</RootNamespace>
     <AssemblyName>ArchiveOneCL</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -31,7 +31,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Mikesoft.ArchiveOneCL.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentCommandLineParser">
+      <HintPath>..\packages\FluentCommandLineParser.1.4.3\lib\net35\FluentCommandLineParser.dll</HintPath>
+    </Reference>
     <Reference Include="NLog">
       <HintPath>..\packages\NLog.4.2.3\lib\net45\NLog.dll</HintPath>
     </Reference>
@@ -47,12 +53,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Files\Files.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StartOne.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ArchiveOne.Models\ArchiveOne.Models.csproj">
+      <Project>{6cbecadf-0afa-4d6f-baa8-54447106eae9}</Project>
+      <Name>ArchiveOne.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
