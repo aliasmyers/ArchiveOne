@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 //using Topshelf.Logging;
 using NLog;
 using Fclp;
-using Mikesoft.ArchiveOneCL;
+using Mikesoft.ArchiveOne;
 
-namespace Mikesoft.ArchiveOneCL
+namespace Mikesoft.ArchiveOne.CL
 {
     class Program
     {
@@ -41,31 +41,7 @@ namespace Mikesoft.ArchiveOneCL
 
             if (result.HasErrors == false)
             {
-
                 Application.StartOne app = new Application.StartOne(p.Object);
-
-                #region ServiceRegion
-                
-                
-                //When to configuration migrates to the app.config so this can run as a service
-                //logger.Trace("Starting Up Service...");
-                //HostFactory.New(x => { x.UseNLog(); });
-                //HostFactory.Run(x =>                                 //1
-                //{
-                    
-                //    x.Service<Application.StartOne>(s =>                        //2
-                //    {
-                //        s.ConstructUsing(name => new Application.StartOne(p.Object));     //3
-                //        s.WhenStarted(start => start.Start());              //4
-                //        s.WhenStopped(start => start.Stop());               //5
-                //    });
-                //    x.RunAsLocalSystem();                            //6
-
-                //    x.SetDescription("Command Line Application that can run as a Service");        //7
-                //    x.SetDisplayName("ArchiveOne");                       //8
-                //    x.SetServiceName("ArchiveOne");                       //9
-                //});         
-                #endregion
             }
             else {
                 logger.Fatal("Arguments failed to parse.");

@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Mikesoft.ArchiveOneCL.Models;
+using Mikesoft.ArchiveOne.Models;
 
-namespace ArchiveOneCL.Tests
+namespace Mikesoft.ArchiveOne.Tests
 {
     [TestClass]
     public class ModelTests

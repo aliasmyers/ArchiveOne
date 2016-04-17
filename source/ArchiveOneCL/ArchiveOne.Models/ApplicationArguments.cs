@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mikesoft.ArchiveOneCL.Models
+namespace Mikesoft.ArchiveOne.Models
 {
     public class ApplicationArguments
     {
         public string directory { get; set; }
+        public int timerInterval { get; set; }
         public bool silent { get; set; }
         public bool verbose { get; set; }
 
