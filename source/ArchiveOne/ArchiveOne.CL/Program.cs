@@ -37,6 +37,10 @@ namespace Mikesoft.ArchiveOne.CL
              .As('v', "verbose")
              .SetDefault(false); // use the standard fluent Api to define a default value if non is specified in the arguments
 
+            p.Setup(arg => arg.timerInterval)
+             .As('t', "TimerInterval")
+             .SetDefault(1000); // use the standard fluent Api to define a default value if non is specified in the arguments
+
             var result = p.Parse(args);
 
             if (result.HasErrors == false)
@@ -44,7 +48,8 @@ namespace Mikesoft.ArchiveOne.CL
                 Application.StartOne app = new Application.StartOne(p.Object);
             }
             else {
-                logger.Fatal("Arguments failed to parse.");
+
+                logger.Fatal("Arguments failed to parse. {0}", result.ErrorText);
             }
 
             Console.ReadKey();

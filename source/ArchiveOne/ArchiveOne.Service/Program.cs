@@ -30,11 +30,7 @@ namespace Mikesoft.ArchiveOne.Service
                 {
                     x.Service<Application.StartOne>(s =>
                     {
-                        ExeConfigurationFileMap configMap = new ExeConfigurationFileMap();
-                        configMap.ExeConfigFilename = AppDomain.CurrentDomain.BaseDirectory + @"Mikesoft.ArchiveOne.Service.exe.config";
-                        Configuration config = ConfigurationManager.OpenMappedExeConfiguration(configMap, ConfigurationUserLevel.None);
-
-                        s.ConstructUsing(name => new Application.StartOne(config.AppSettings.Settings));
+                        s.ConstructUsing(name => new Application.StartOne(ConfigurationManager.AppSettings));
                         s.WhenStarted(start => start.Start());
                         s.WhenStopped(start => start.Stop());
                     });
