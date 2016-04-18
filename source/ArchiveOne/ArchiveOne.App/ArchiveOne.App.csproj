@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Files\Files.cs" />
+    <Compile Include="Files\Directory.cs" />
+    <Compile Include="Files\File.cs" />
+    <Compile Include="Files\FileTests.cs" />
     <Compile Include="StartOne.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

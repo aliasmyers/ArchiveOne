@@ -24,7 +24,21 @@ namespace Mikesoft.ArchiveOne.CL
             // create a generic parser for the ApplicationArguments type
             var p = new FluentCommandLineParser<Models.ApplicationArguments>();
 
+            Dictionary<string, string> validArgs = p.Object.getApplicationParameters();
+
+            //TODO Setup all the arguments then build an object to add them to
+
+            //foreach ( key in validArgs.keys)
+            //{
+                
+            //    p.Setup(arg => arg.directory)
+            //    .As('d', "directory") // define the short and long option name
+            //    .Required(); // using the standard fluent Api to declare this Option as required.
+
+            //}
+
             // specify which property the value will be assigned too.
+            
             p.Setup(arg => arg.directory)
              .As('d', "directory") // define the short and long option name
              .Required(); // using the standard fluent Api to declare this Option as required.
@@ -38,7 +52,7 @@ namespace Mikesoft.ArchiveOne.CL
              .SetDefault(false); // use the standard fluent Api to define a default value if non is specified in the arguments
 
             p.Setup(arg => arg.timerInterval)
-             .As('t', "TimerInterval")
+             .As('i', "TimerInterval")
              .SetDefault(1000); // use the standard fluent Api to define a default value if non is specified in the arguments
 
             var result = p.Parse(args);
